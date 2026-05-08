@@ -333,7 +333,7 @@ s3_customer_sales_store_df_join.show()
 # write reporting data into MYSQL table also
 
 final_customer_data_mart_df = s3_customer_sales_store_df_join\
-                                .select(".custcustomer_id","cust.first_name","cust.last_name","cust.address",
+                                .select("cust.customer_id","cust.first_name","cust.last_name","cust.address",
                                         "cust.pincode","cust.phone_number","sales_date","total_cost")
 logger.info("****Customer datamart***")
 final_customer_data_mart_df.show()
