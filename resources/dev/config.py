@@ -5,7 +5,7 @@ iv = "youtube_encyptyo"
 salt = "youtube_AesEncryption"
 
 
-#aws details , access and secret key
+#aws details
 
 
 bucket_name = "feb-de-project"

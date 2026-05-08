@@ -56,9 +56,7 @@ response = s3_client.list_buckets()
 
 logger.info(f"List of buckets are {response['Buckets']}")
 
-#check if the local directory already has file
-# if file is present then check if the same file is present in the staging area with status ='A'
-# if so then don't delete and try to re run,else give an error and not proceed to next file
+
 
 csv_files  = [file for file in os.listdir(config.local_directory) if file.endswith(".csv")]
 
@@ -66,6 +64,10 @@ csv_files  = [file for file in os.listdir(config.local_directory) if file.endswi
 sql_connection_provider = MySQLConnectionProvider()
 connection = sql_connection_provider.get_mysql_connection()
 cursor = connection.cursor()
+
+#check if the local directory already has file
+# if file is present then check if the same file is present in the staging area with status ='A'
+# if so then don't delete and try to re run,else give an error and not proceed to next file
 
 if csv_files:
 
@@ -252,7 +254,7 @@ schema = StructType([
     StructField("sales_person_id", IntegerType(), True),
     StructField("price", FloatType(), True),
     StructField("quantity", IntegerType(), True),
-    StructField("total_cost", FloatType(), True),  # fixed
+    StructField("total_cost", FloatType(), True),
     StructField("additional_column", StringType(), True)  # fixed
 ])
 
