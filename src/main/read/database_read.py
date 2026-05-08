@@ -1,7 +1,7 @@
 class DatabaseReader:
-    def __init__(self,url,proerties):
+    def __init__(self,url,properties):
         self.url=url
-        self.properties= proerties
+        self.properties= properties
 
     def create_dataframe(self,spark,table_name):
         df = spark.read.jdbc(url = self.url,
